@@ -1,0 +1,49 @@
+{
+  "name": "@quantra/audit-verify",
+  "version": "1.0.0",
+  "description": "Offline cryptographic verifier for Quantra Sealed™ Audit Pack exports. Verify trade attestation chains without trusting Quantra.",
+  "type": "module",
+  "main": "./src/sealedVerifier.mjs",
+  "bin": {
+    "quantra-audit-verify": "./verify.mjs"
+  },
+  "exports": {
+    ".": "./src/sealedVerifier.mjs",
+    "./canonical": "./src/canonicalHash.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/",
+    "verify": "node verify.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "src/",
+    "verify.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "audit",
+    "verification",
+    "trading",
+    "hash-chain",
+    "sealed",
+    "quantra",
+    "attestation",
+    "tamper-proof",
+    "trade-record",
+    "cryptographic"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quantra-trader/audit-verify.git"
+  },
+  "homepage": "https://github.com/quantra-trader/audit-verify",
+  "bugs": {
+    "url": "https://github.com/quantra-trader/audit-verify/issues"
+  },
+  "author": "Quantra Tech, S.L.U.",
+  "license": "MIT"
+}
