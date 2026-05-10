@@ -1,6 +1,6 @@
 {
   "name": "@quantra/audit-verify",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Offline cryptographic verifier for Quantra Sealed™ Audit Pack exports. Verify trade attestation chains without trusting Quantra. Zero dependencies.",
   "type": "module",
   "main": "./lib/sealedVerifier.mjs",
@@ -12,7 +12,7 @@
     "./canonical": "./lib/canonicalHash.mjs"
   },
   "scripts": {
-    "test": "node --test \"tests/**/*.test.mjs\"",
+    "test": "node --test tests/canonicalHash.test.mjs tests/verifier.test.mjs",
     "verify": "node verify.mjs",
     "generate-fixtures": "node tests/generate-fixtures.mjs"
   },

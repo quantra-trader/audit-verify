@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-05-10
+
+### Fixed
+
+- CI test script: `node --test "tests/**/*.test.mjs"` glob pattern is only
+  supported in Node 22.x+; switched to explicit file list
+  `node --test tests/canonicalHash.test.mjs tests/verifier.test.mjs` for
+  Node 20.x + 22.x compatibility (matches `engines.node >=20.0.0`).
+
+## [1.1.0] - 2026-05-10
+
+### Changed
+
+- Restructured `src/` → `lib/` (standard library layout).
+- Renamed `test/` → `tests/` (matches Node convention + glob pattern).
+- `engines.node`: `>=18` → `>=20.0.0`.
+- `package.json`: added `scripts.generate-fixtures` for reproducible chain regen.
+- `package.json`: updated `main` + `exports` + `files` to `lib/` paths.
+
+### Added
+
+- `tests/canonicalHash.test.mjs` — 13 dedicated canonical JSON tests.
+- `tests/fixtures/` — 7 deterministic synthetic chains shipped for reproducible CI.
+- `.github/workflows/ci.yml` — matrix Node 20.x + 22.x × ubuntu/macos/windows.
+- 4 pure-grep tests asserting `lib/` + `verify.mjs` + `package.json` zero deps.
+
+### Notes
+
+- Test suite expanded 23 → 50.
+- API + CLI behavior unchanged. Compatible with v1.0.0 consumers.
+
 ## [1.0.0] - 2026-05-10
 
 Initial public release.
