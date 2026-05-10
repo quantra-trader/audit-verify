@@ -18,7 +18,7 @@
 
 import { readFileSync } from 'node:fs';
 import { argv, exit, stdin } from 'node:process';
-import { verifySealedExport } from './src/sealedVerifier.mjs';
+import { verifySealedExport } from './lib/sealedVerifier.mjs';
 
 const REASON_LABELS = {
   GENESIS_MISMATCH:

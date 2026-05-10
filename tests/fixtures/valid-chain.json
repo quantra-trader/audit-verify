@@ -1,0 +1,69 @@
+{
+  "scope": "account",
+  "scopeId": "6450a1b2c3d4e5f600000001",
+  "genesis": "7403267675d7a964282e3a8c1efdd0e5fcfd32f5e8c6d8aa7e260daff2dfbcab",
+  "head": "f3ccbfad9078c034a0fe727be2b25ce3c22204972a71062836a96cdc1d90add5",
+  "length": 3,
+  "entries": [
+    {
+      "publicId": "01HXXXXXXXXXXXXXXXXXXXXX00",
+      "sequence": 0,
+      "hash": "183952073570aa73e1780bfc881b8770685e5ee03c147374952e321736a7ace4",
+      "prevHash": "7403267675d7a964282e3a8c1efdd0e5fcfd32f5e8c6d8aa7e260daff2dfbcab",
+      "payloadHash": "3a67422ab4c8b252fb91d0f7d7cce0381486d62afa0d56a867c675c70743a47a",
+      "canonical": {
+        "tradeId": "TEST-A",
+        "symbol": "MNQ",
+        "side": "long",
+        "pnl": 100,
+        "sequenceMarker": 0
+      },
+      "eventType": "trade.attested",
+      "refType": "Trade",
+      "refId": "64aabbccddeeff0000000000",
+      "attestedAt": "2026-05-08T14:00:00.000Z",
+      "attestedBy": null,
+      "correctsEntryId": null
+    },
+    {
+      "publicId": "01HXXXXXXXXXXXXXXXXXXXXX01",
+      "sequence": 1,
+      "hash": "b3070db1f185b7863b18c036668dd13f800ac2d09a7c15fbc3e7535a8bc84003",
+      "prevHash": "183952073570aa73e1780bfc881b8770685e5ee03c147374952e321736a7ace4",
+      "payloadHash": "dd5298aa77e73d3fe101689fce82f225685e48cb7a6caedf428ca237460ff3a0",
+      "canonical": {
+        "tradeId": "TEST-B",
+        "symbol": "MNQ",
+        "side": "short",
+        "pnl": 125,
+        "sequenceMarker": 1
+      },
+      "eventType": "trade.attested",
+      "refType": "Trade",
+      "refId": "64aabbccddeeff0000000001",
+      "attestedAt": "2026-05-08T14:05:00.000Z",
+      "attestedBy": null,
+      "correctsEntryId": null
+    },
+    {
+      "publicId": "01HXXXXXXXXXXXXXXXXXXXXX02",
+      "sequence": 2,
+      "hash": "f3ccbfad9078c034a0fe727be2b25ce3c22204972a71062836a96cdc1d90add5",
+      "prevHash": "b3070db1f185b7863b18c036668dd13f800ac2d09a7c15fbc3e7535a8bc84003",
+      "payloadHash": "652b01a880e367756a01d29575364e7bb1c0050405885879131a254c238e4d9d",
+      "canonical": {
+        "tradeId": "TEST-C",
+        "symbol": "MNQ",
+        "side": "long",
+        "pnl": 150,
+        "sequenceMarker": 2
+      },
+      "eventType": "trade.attested",
+      "refType": "Trade",
+      "refId": "64aabbccddeeff0000000002",
+      "attestedAt": "2026-05-08T14:10:00.000Z",
+      "attestedBy": null,
+      "correctsEntryId": null
+    }
+  ]
+}

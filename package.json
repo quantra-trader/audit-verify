@@ -1,28 +1,30 @@
 {
   "name": "@quantra/audit-verify",
-  "version": "1.0.0",
-  "description": "Offline cryptographic verifier for Quantra Sealed™ Audit Pack exports. Verify trade attestation chains without trusting Quantra.",
+  "version": "1.1.0",
+  "description": "Offline cryptographic verifier for Quantra Sealed™ Audit Pack exports. Verify trade attestation chains without trusting Quantra. Zero dependencies.",
   "type": "module",
-  "main": "./src/sealedVerifier.mjs",
+  "main": "./lib/sealedVerifier.mjs",
   "bin": {
     "quantra-audit-verify": "./verify.mjs"
   },
   "exports": {
-    ".": "./src/sealedVerifier.mjs",
-    "./canonical": "./src/canonicalHash.mjs"
+    ".": "./lib/sealedVerifier.mjs",
+    "./canonical": "./lib/canonicalHash.mjs"
   },
   "scripts": {
-    "test": "node --test test/",
-    "verify": "node verify.mjs"
+    "test": "node --test \"tests/**/*.test.mjs\"",
+    "verify": "node verify.mjs",
+    "generate-fixtures": "node tests/generate-fixtures.mjs"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20.0.0"
   },
   "files": [
-    "src/",
+    "lib/",
     "verify.mjs",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "keywords": [
     "audit",
@@ -34,7 +36,8 @@
     "attestation",
     "tamper-proof",
     "trade-record",
-    "cryptographic"
+    "cryptographic",
+    "offline-verifier"
   ],
   "repository": {
     "type": "git",
