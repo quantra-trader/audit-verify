@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-05-20
+
+### Fixed
+
+- `package.json` `bin` field: removed leading `./` prefix from value to
+  satisfy npm 11+ stricter bin path validation. v2.0.0 publish emitted
+  warning `"bin[quantra-audit-verify]" script name verify.mjs was invalid
+  and removed` which silently disabled the CLI alias. v2.0.1 restores the
+  `quantra-audit-verify` global CLI binary.
+
+After install, `npx @quantra/audit-verify path/to/audit-pack.json` works
+end-to-end without needing to invoke `node node_modules/.../verify.mjs`.
+
 ## [2.0.0] - 2026-05-20
 
 ### Added
