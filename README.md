@@ -354,9 +354,15 @@ trading record has ever offered.
 This verifier is published in lockstep with the Quantra backend. Each
 release carries a semantic version that maps directly to a backend git tag.
 
-| `audit-verify` version | Quantra backend tag | Algorithm version |
-| :--- | :--- | :--- |
-| `1.x` | `audit-verify-v1.x` | SHA-256 + canonicalJson v1 |
+| `audit-verify` version | Quantra backend tag | Algorithm version | Supported scopes |
+| :--- | :--- | :--- | :--- |
+| `1.x` | `audit-verify-v1.x` | SHA-256 + canonicalJson v1 | `account`, `user`, `mentor`, `eventbus`, `tax_report` |
+| `2.x` | `audit-verify-v2.x` | SHA-256 + canonicalJson v1 (algorithm unchanged) | `1.x` scopes + `account-journal` (F5 PR1 D-J.3 sealed per-journal sub-chain) |
+
+**v2.0.0 backwards compatibility**: v1.x exports verify OK with v2.0+
+verifier without modification (covered by `tests/cross-version.test.mjs`).
+Only required if your exports include sealed lenses (mentor Legend tier
+per-journal seals introduced post-F5).
 
 A backend release that changes the chain algorithm (e.g. migrating to a new
 hash function, adding new canonical fields, bumping the genesis prefix) will

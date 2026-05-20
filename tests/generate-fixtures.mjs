@@ -134,8 +134,19 @@ async function main() {
   sequenceGap.length = sequenceGap.entries.length;
   await writeFixture('sequence-gap.json', sequenceGap);
 
+  // 8. v2.0.0 — valid-chain-account-journal.json — exercise new scope.
+  // F5 PR1 D-J.3: sealed per-journal sub-chain. scopeId is sha1(account+lens)
+  // truncated 24-hex synthesized; for fixture purposes any deterministic
+  // 24-hex value works — verifier checks shape + recomputes genesis.
+  const accountJournal = buildValidExport({
+    scope: 'account-journal',
+    scopeId: '6450a1b2c3d4e5f600000003',
+    count: 3,
+  });
+  await writeFixture('valid-chain-account-journal.json', accountJournal);
+
   console.log('');
-  console.log(`Done. 7 fixtures written to ${fixturesDir}`);
+  console.log(`Done. 8 fixtures written to ${fixturesDir}`);
 }
 
 main().catch((err) => {

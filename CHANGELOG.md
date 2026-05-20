@@ -5,6 +5,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-05-20
+
+### Added
+
+- **New scope `'account-journal'`** in `VALID_SCOPES` — Quantra backend F5
+  PR1 D-J.3 signed Diego 2026-05-17. Supports dual sealed per-journal
+  sub-chain (mentor Legend tier opt-in granular per-lens audit trail).
+- Cross-version test suite (`tests/cross-version.test.mjs`) validates v1.x
+  exports (scopes `'account'`/`'user'`/`'mentor'`/`'eventbus'`/`'tax_report'`)
+  still verify OK with v2.0 verifier without modification.
+- New fixture `valid-chain-account-journal.json` exercising v2.0 scope.
+
+### Backwards compatibility
+
+- **v1.x exports remain fully verifiable** with v2.0 verifier without
+  modification. Only addition — no breaking semantic changes to existing
+  algorithm.
+- **v2.0 exports** with `scope='account-journal'` require v2.0+ verifier
+  (older v1.x verifiers reject with `INVALID_EXPORT_SHAPE`).
+
+### Sync
+
+- Mirrors Quantra backend `lib/sealedVerifier.js` v2.0 byte-for-byte at the
+  algorithm level. Scope additions only; SHA-256 + canonicalJson + entry hash
+  recursion algorithm unchanged.
+
+### Migration
+
+If you've been using v1.x and ALL your Quantra exports use the legacy 5
+scopes — **no migration required**. If you want to verify exports from
+sealed lenses (mentor Legend tier per-journal seals introduced post-F5),
+upgrade to v2.0+:
+
+```bash
+npm install @quantra/audit-verify@^2.0.0
+```
+
 ## [1.1.1] - 2026-05-10
 
 ### Fixed
